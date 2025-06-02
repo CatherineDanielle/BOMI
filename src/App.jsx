@@ -1,12 +1,19 @@
-import { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
+import Articles from './pages/Articles';
+import BMI from './pages/BMI';
+import About from './pages/About';
 
 export default function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className='bg-[#F5ECD5]'>
-      <Home />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/bmi" element={<BMI />}/>
+        <Route path='/about' element={<About />}/>
+      </Routes>
+    </Router>
   );
 }

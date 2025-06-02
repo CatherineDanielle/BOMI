@@ -33,6 +33,11 @@ const blogPosts = [
   },
 ];
 
+const handleViewAllClick = () => {
+    // Navigate to sleep tips page
+    window.location.href = '/articles';
+  };
+
 export default function BlogSection() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
@@ -69,6 +74,18 @@ export default function BlogSection() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="flex justify-center">
+      <button
+        onClick={handleViewAllClick}
+        className="px-6 py-2 mt-10   rounded-full font-medium border-2 transition-all duration-200 hover:bg-[#F0BB78] hover:text-white"
+        style={{
+            borderColor: '#F0BB78',
+            color: '#626F47'
+        }}
+        >
+        View All 
+      </button>
       </div>
     </div>
   );
