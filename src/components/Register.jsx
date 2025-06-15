@@ -6,6 +6,7 @@ export default function Register() {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
+  const [dateofbirth, setDoB] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -16,15 +17,17 @@ export default function Register() {
       alert("Passwords do not match");
       return;
     }
-    console.log("Registering:", { username, email, password });
+    console.log("Registering:", { username, dateofbirth, email, password });
     // Handle registration logic here
     fetch ("http://127.0.0.1:8000/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
+      //DISESUAIKAN LAGI SAMA TABEL SQL BACKEND
+      body: JSON.stringify({ 
         name: username,
+        dateofbirth: dateofbirth,
         email: email,
         password: password
       }),
@@ -64,6 +67,22 @@ export default function Register() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
+              required
+              className="w-full px-3 py-2 border border-[#374c2c] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[#ffdd00]"
+            />
+          </div>
+          <div>
+            <label htmlFor="dateofbirth" className="block mb-1 text-[#374c2c] font-medium">
+              Date of Birth
+            </label>
+            <input
+              id="dateofbirth"
+              type="date"
+              min="1900-01-01" 
+              max="2020-01-01"
+              value={dateofbirth}
+              onChange={(e) => setDoB(e.target.value)}
+              placeholder="Your birthdate"
               required
               className="w-full px-3 py-2 border border-[#374c2c] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[#ffdd00]"
             />

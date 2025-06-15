@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from "../context/AuthContext";
+import { LogOut } from 'lucide-react';
 
 const Navbar = ({ currentPage = 'home' }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  const isLoggedIn = user ? true : false;
+  const isLoggedIn = Boolean(user);
   const userProfile = user ?? null;
 
   const navItems = [
@@ -27,10 +29,7 @@ const Navbar = ({ currentPage = 'home' }) => {
     <nav className="sticky top-0 z-50 w-full px-8 py-4 bg-[#F5ECD5] shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div 
-          className="cursor-pointer"
-          onClick={handleLogoClick}
-        >
+        <div className="cursor-pointer" onClick={handleLogoClick}>
           <img
             src="/logo.svg"
             alt="BOMI Logo"
@@ -61,21 +60,63 @@ const Navbar = ({ currentPage = 'home' }) => {
 
         {/* Right Side */}
         <div className="flex items-center space-x-4">
-          {/* Desktop Login/Profile */}
+          {/* Desktop Login/Profile Link*/}
           <div className="hidden md:block">
             {isLoggedIn && userProfile ? (
               <button 
-                onClick={() => console.log('Navigate to profile')}
+                onClick={() => {setSidebarOpen(true);
+                   console.log('Navigate to profile');
+                  }}
                 className="w-10 h-10 rounded-full bg-orange-300 flex items-center justify-center text-white font-bold hover:scale-105 transition-transform"
               >
                 {userProfile.name ? userProfile.name[0].toUpperCase() : 'U'}
               </button>
             ) : (
               <Link
-                to="/login" className='px-6 py-2 rounded-full font-medium border-2 border-orange-300 text-green-700 hover:bg-orange-300 hover:text-white transition-all duration-200'>Login</Link>
+                to="/login" className='h-10 px-6 flex items-center justify-center rounded-full font-medium border-2 border-orange-300 text-green-700 hover:bg-orange-300 hover:text-white transition-all duration-200'>Login</Link>
             )}
           </div>
+          {sidebarOpen && (
+            <div className="fixed top-0 right-0 h-full w-64 bg-[#a8b764] shadow-lg p-4 z-50">
+              <button className="text-gray-600 hover:text-red-500 float-right"
+                      onClick={() => setSidebarOpen(false)}
+              >
+                ✕
+              </button>
 
+              {/*Profile Content*/}
+              <div className = "text-center mt-6">
+                {/*Profile Picture*/}
+                <img
+                  src={userProfile.photoUrl || "/default-avatar.png"} alt='Profile'
+                  className="w-24 h-24 rounded-full mx-auto border-4 border-orange-200 object-cover"/>
+              
+                {/*Username*/}
+                <h2 className="text-xl font-semibold mt-3">
+                  {userProfile.name ?? "Username"}
+                </h2>
+
+                {/*Date of Birth*/}
+                <p className="text-sm text-gray-500 mt-1">
+                  {userProfile.dateofbirth ?? "Why you have no birthday ha?"}
+                </p>
+
+                {/*Email*/}
+                <p className="text-sm text-gray-500 mt-1">
+                  {userProfile.email ?? "address@example.com"}
+                </p>
+
+                {/*Logout Button*/}
+                <button onClick={() => {
+                  LogOut();
+                  setSidebarOpen(false);
+                }}
+                className="mt-6 px-5 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition">
+                  Logout
+                </button>
+              </div>
+            </div>
+          )}
           {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2 text-gray-700 hover:text-green-700"

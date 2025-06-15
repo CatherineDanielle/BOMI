@@ -40,7 +40,7 @@ const dataLine = {
   datasets: [
     {
       label: 'BMI',
-      data: [69,70,10,16,29,34,39,44,49,54,59,64],
+      data: [69,70,10,16,29,34,39,44,49,54,59,64], 
       borderColor: 'rgb(255, 99, 132)',
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
     },
@@ -222,7 +222,7 @@ const BMICalc = () => {
             <div className="grid md:grid-cols-2 gap-8">
               
               {/* Left Side - Instructions and Gender Selection */}
-              <div className="bg-[#626F47] rounded-2xl p-6 text-white items-center justify-center text-center ff">
+              <div className="bg-[#626F47] rounded-2xl p-6 text-white text-center flex flex-col justify-center">
                 <h2 className="text-2xl font-bold mb-4">Measure your BMI now!</h2>
                 <p className="text-sm mb-8 opacity-90">
                   BMI, or Body Mass Index, is a measure that uses your height and weight to work out if your weight is healthy. BMI checks if you're underweight, overweight, or obese.
@@ -399,7 +399,7 @@ const BMICalc = () => {
                     )}
 
               <div className='w-1/2 mx-auto my-4'>
-                <Doughnut data={bodyChart} />;
+                <Doughnut data={bodyChart} />
               </div>
 
               {bodyFat && (

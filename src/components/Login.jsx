@@ -30,16 +30,12 @@ export default function Login() {
       }
     }).then((data) => {
       login(data.user);
-      console.log(data.user);
-      // navigate('/');
+      // console.log(data.user);
+      navigate('/');
     });
     
   };
 
-  // const handleRegister = () => {
-  //   console.log("Redirecting to register page...");
-  //   // Navigate to register page here
-  // };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#a8b764] p-4">
