@@ -1,0 +1,109 @@
+import { Link } from "lucide-react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+export default function Register() {
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    console.log("Registering:", { username, email, password });
+    // Handle registration logic here
+    fetch ("http://127.0.0.1:8000/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: username,
+        email: email,
+        password: password
+      }),
+
+    }).then(() => {
+      navigate('/login');
+    });
+      
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-[#a8b764] p-4">
+      <div className="w-full max-w-sm shadow-xl rounded-2xl bg-[#e9deb8] border-none p-6 space-y-4">
+        <h2 className="text-2xl font-bold text-center text-[#374c2c]">Register</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="username" className="block mb-1 text-[#374c2c] font-medium">
+              Username
+            </label>
+            <input
+              id="username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Your username"
+              required
+              className="w-full px-3 py-2 border border-[#374c2c] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[#ffdd00]"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block mb-1 text-[#374c2c] font-medium">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@example.com"
+              required
+              className="w-full px-3 py-2 border border-[#374c2c] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[#ffdd00]"
+            />
+          </div>
+          <div>
+            <label htmlFor="password" className="block mb-1 text-[#374c2c] font-medium">
+              Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="••••••••"
+              required
+              className="w-full px-3 py-2 border border-[#374c2c] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[#ffdd00]"
+            />
+          </div>
+          <div>
+            <label htmlFor="confirmPassword" className="block mb-1 text-[#374c2c] font-medium">
+              Confirm Password
+            </label>
+            <input
+              id="confirmPassword"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="••••••••"
+              required
+              className="w-full px-3 py-2 border border-[#374c2c] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[#ffdd00]"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full py-2 bg-[#ffdd00] text-[#374c2c] rounded-md font-semibold hover:bg-[#e6c900]"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
