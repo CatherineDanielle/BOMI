@@ -9,12 +9,10 @@ PHP 8.4.1
 chart.js
 ```
 *Acknowledgement*
-This project is created by:
-Kezia Karen Amelia
-Calista Paramitha Chandra - 270
+
+Task Distribution:
+Front End Team: Catherine Danielle (Homepage, About, Articles, BMI Calculator) & Calista Paramitha Chandra (Body Fat Estimation, BMI Tracker, Login Page)
+Back End Team: Angela Verine Hutomo, Kezia Karen Amelia, Stefani Maria Angela
 
 
-This Project is supported by B24 CS Camp:
-Hanustavira Guru Acarya - 2440046031
-Made Adi Adnyana - 2440042550
-Nicolaus Avenito - 2440010284
+
