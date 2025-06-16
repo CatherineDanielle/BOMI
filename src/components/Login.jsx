@@ -38,8 +38,8 @@ export default function Login() {
 
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#a8b764] p-4">
-      <div className="w-full max-w-sm shadow-xl rounded-2xl bg-[#e9deb8] border-none p-6 space-y-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#e9deb8] p-4">
+      <div className="w-full max-w-sm shadow-xl rounded-2xl bg-[#a8b764] border-none p-6 space-y-4">
         <h2 className="text-2xl font-bold text-center text-[#374c2c]">Login</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -53,7 +53,7 @@ export default function Login() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
               required
-              className="w-full px-3 py-2 border border-[#374c2c] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[#ffdd00]"
+              className="w-full px-3 py-2 border border-[#374c2c] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[#F0BB78]"
             />
           </div>
           <div>
@@ -67,12 +67,12 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
               required
-              className="w-full px-3 py-2 border border-[#374c2c] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[#ffdd00]"
+              className="w-full px-3 py-2 border border-[#374c2c] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[#F0BB78]"
             />
           </div>
           <button
             type="submit"
-            className="w-full py-2 bg-[#ffdd00] text-[#374c2c] rounded-md font-semibold hover:bg-[#e6c900]"
+            className="w-full py-2 bg-[#F0BB78] text-[#374c2c] rounded-md font-semibold hover:bg-[#e6c900]"
           >
             Sign In
           </button>

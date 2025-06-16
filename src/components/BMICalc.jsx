@@ -413,7 +413,7 @@ const BMICalc = () => {
   )}
               <div className="mt-6 text-center w-full">
               <div className='inline-block bg-white/70 text-[#626F47] px-6 py-4 rounded-2xl shadow-md w-full'>
-                <Line options={options} data={dataLine} />;
+                <Line options={options} data={dataLine} />
               </div>
               </div>
             
