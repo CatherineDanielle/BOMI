@@ -21,3 +21,8 @@ Link Video:
 
 Link ZIP:
 [BOMI - Coding](https://drive.google.com/drive/folders/1uTCE0GvD48gViqvVgEecVCsFXIPZ8rYX?usp=sharing)
+
+## Contributors
+Figma : Stefani, Angela, Catherine, Kezia, Calista
+Frontend : Catherine(Design figma, navbar, footer, home page, about, BMI, tracker, merapihkan design akhir), Calista(login/register page, profile)
+Backend : Angela, Kezia
