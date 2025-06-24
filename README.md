@@ -17,7 +17,7 @@ Link PPT:
 
 Link Video:
 [BOMI.mp4
-](https://binusianorg-my.sharepoint.com/personal/catherine_danielle_binus_ac_id/_layouts/15/guestaccess.aspx?share=EWwn2WWv1JtGgVt697JZVksB2jFzGtDSDQM45B2c8ZDZMA&e=3rBGsM)
+](https://binusianorg-my.sharepoint.com/personal/catherine_danielle_binus_ac_id/Documents/BOMI.mp4?csf=1&web=1&e=cHKzbf)
 
 Link ZIP:
 [BOMI - Coding](https://drive.google.com/drive/folders/1uTCE0GvD48gViqvVgEecVCsFXIPZ8rYX?usp=sharing)
